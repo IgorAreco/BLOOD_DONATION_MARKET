@@ -6,4 +6,7 @@ Rails.application.routes.draw do
     resources :donations, only: [:create]
   end
   get '/my_donations', to: 'pages#my_donations', as: :my_donations
+  get '/all_donations', to: 'pages#all_donations'
+  # get '/my_donations', to: 'pages#my_donations'
+
 end

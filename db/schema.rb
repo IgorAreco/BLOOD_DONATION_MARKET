@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2021_08_24_154217) do
   create_table "bloods", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.text "location"
+    t.integer "quantity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_bloods_on_user_id"

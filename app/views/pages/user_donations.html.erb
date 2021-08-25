@@ -7,19 +7,17 @@
     <table class="table">
       <thead class="bg-danger text-white">
         <tr>
+          <th scope="col">User</th>
           <th scope="col">Blood Quantity</th>
           <th scope="col">Location</th>
           <th colspan="3"></th>
         </tr>
       </thead>
         <tbody>
-          <% @donations.each do |donation|  %>
-            <tr>
-              <td scope="col"><%= donation.quantity%>ml</td>
-              <td scope="col"><%= donation.location %></td>
-
-            </tr>
-          <% end %>
+          <tr>
+            <td scope="col"><%= User.donation %></td>
+          </tr>
+          <% end  %>
         </tbody>
     </table>
   </div>
