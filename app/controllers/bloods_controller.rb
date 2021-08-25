@@ -4,7 +4,15 @@ class BloodsController < ApplicationController
   end
 
   def index
-    @bloods = Blood.all
+    @bloods = Blood.where.not(latitude: nil, longitude: nil)
+
+    @markers = @bloods.geocoded.map do |blood|
+      {
+        lat: blood.latitude,
+        lng: blood.longitude,
+        #info_window: render_to_string(partial: "info_window", locals: { blood: blood })
+      }
+    end
   end
 
   def show
