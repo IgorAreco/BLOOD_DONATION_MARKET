@@ -1,11 +1,18 @@
 class BloodsController < ApplicationController
   def new
-    @user = User.find(params[:user_id])
     @blood = Blood.new
   end
 
   def index
-    @bloods = Blood.all
+    @bloods = Blood.where.not(latitude: nil, longitude: nil)
+
+    @markers = @bloods.geocoded.map do |blood|
+      {
+        lat: blood.latitude,
+        lng: blood.longitude,
+        #info_window: render_to_string(partial: "info_window", locals: { blood: blood })
+      }
+    end
   end
 
   def show
@@ -13,22 +20,22 @@ class BloodsController < ApplicationController
   end
 
   def create
-    @user = User.find(params[:user_id])
-
     @blood = Blood.new(blood_params)
 
-    @blood.user = @user
+    @blood.user = current_user
 
     if @blood.save
-      redirect_to user_path(@user)
+      redirect_to my_donations_path
     else
       render :new
     end
   end
 
+  private
+
   def blood_params
     # repare que o :restaurant_id nao esta presente aqui. Nao queremos que
     # o user nos passe essa informacao (pois pegaremos ela da url)
-    params.require(:blood).permit(:user_id, :quantity, :location)
+    params.require(:blood).permit(:quantity, :location)
   end
 end
