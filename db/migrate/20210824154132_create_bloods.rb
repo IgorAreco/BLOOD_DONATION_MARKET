@@ -3,6 +3,7 @@ class CreateBloods < ActiveRecord::Migration[6.0]
     create_table :bloods do |t|
       t.references :user, null: false, foreign_key: true
       t.text :location
+      t.integer :quantity
 
       t.timestamps
     end

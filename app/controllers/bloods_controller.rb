@@ -1,6 +1,5 @@
 class BloodsController < ApplicationController
   def new
-    @user = User.find(params[:user_id])
     @blood = Blood.new
   end
 
@@ -21,22 +20,22 @@ class BloodsController < ApplicationController
   end
 
   def create
-    @user = User.find(params[:user_id])
-
     @blood = Blood.new(blood_params)
 
-    @blood.user = @user
+    @blood.user = current_user
 
     if @blood.save
-      redirect_to user_path(@user)
+      redirect_to my_donations_path
     else
       render :new
     end
   end
 
+  private
+
   def blood_params
     # repare que o :restaurant_id nao esta presente aqui. Nao queremos que
     # o user nos passe essa informacao (pois pegaremos ela da url)
-    params.require(:blood).permit(:user_id, :quantity, :location)
+    params.require(:blood).permit(:quantity, :location)
   end
 end

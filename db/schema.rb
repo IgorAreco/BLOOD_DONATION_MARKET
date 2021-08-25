@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2021_08_25_165405) do
   create_table "bloods", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.text "location"
+    t.integer "quantity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.float "latitude"
