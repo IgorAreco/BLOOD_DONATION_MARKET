@@ -1,9 +1,0 @@
-fazer rota de criaçao de blood new;
-ajustar tela do index de blood
-fazer uma nav mais bonita com link de doar logar e sair
-fazer footer mais bonito
-na pasta de views pasta devise (faz a gestao de usuarios (tem registration onde o usuario se cadastra ele ja tem o formulario la so que o formulario la so tem email e senha, acrescentar campos extras cnpj))
-
-no new nao precisa acrescentar campo, apenas configurar pra nao ficar escroto igual ta agora
-
-na lista dos bloods colocar se é oferta ou doaçao (botao check) (la acontece a magica)
