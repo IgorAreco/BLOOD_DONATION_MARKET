@@ -33,11 +33,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       # t.datetime :locked_at
       t.text :name
       t.string :CPF
-      t.string :blood_type
-      t.integer :age
-      t.boolean :hepatitis
-      t.boolean :HIV
       t.string :CNPJ
+      t.string :address, null: false, default: ''
 
       t.timestamps null: false
     end

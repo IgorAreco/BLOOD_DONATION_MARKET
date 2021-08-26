@@ -1,5 +1,109 @@
-<h1></h1>
-<%= link_to 'Make a Donation', new_blood_path, class:'btn-warning btn' %>
+<section id="home">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 d-flex">
+          <div class="align-self-center">
+            <h1 class="display-4 text-secondary"> Donate blood & Save Lifes </h1>
+            <p class="text-secondary">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam justo neque,
+              aliquet sit amet elementum vel, vehicula eget eros.
+            </p>
+            <form class="mt-4 mb-4">
+              <div class="input-group input-group-lg">
+                <input type="text" placeholder="Your e-mail" class="form-control">
+                <div class="input-group-append">
+                  <button type="button" class="btn btn-danger">Donate</button>
+                </div>
+              </div>
+            </form>
 
-<%= link_to 'All Donations', all_donations_path, class:'btn-warning btn' %>
-<%= link_to 'My Donations', my_donations_path, class:'btn-warning btn' %>
+          </div>
+        </div>
+        <div class="col-md-6 d-none d-sm-block">
+          <%= image_tag('donateblood.png') %>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="caixa">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 d-flex">
+          <div class="align-self-center">
+            <h2 class="text-secondary">About Blood Doners
+            </h2>
+            <p class="text-secondary">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+              Ipsum has been the
+              industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+              scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
+              electronic typesetting, remaining essentially unchanged.
+
+            </p>
+            <a href="#" class="btn btn-danger">Become a member</a>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <%= image_tag('blood.png',  class:"img-fluid" )%>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="caixa">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <%# image_tag('aboutus.png',  class:"img-fluid" )%>
+        </div>
+
+        <div class="col-md-6 d-flex pb-5 text-center">
+          <div class="align-self-center">
+            <h2 class="text-secondary">Donation Process
+            </h2>
+            <p class="text-secondary">
+              The donation process from the time you arrive center until the time you leave
+            </p>
+            <a href="#" class="btn btn-danger">Donate</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="caixa">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <%= image_tag('beAHero.png',  class:"img-fluid" ) %>
+          <h4 class="text-secondary text-center">It is easy</h4>
+          <p class="text-secondary">
+            It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and
+            more recently
+            with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+          </p>
+        </div>
+        <div class="col-md-4">
+          <%= image_tag('bloodDayHonor.png',  class:"img-fluid"  ) %>
+          <h4 class="text-secondary text-center">Blood Donor Day</h4>
+          <p class="text-secondary">
+            Industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+            scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
+            electronic typesetting, remaining essentially unchanged.
+
+          </p>
+        </div>
+        <div class="col-md-4">
+          <%= image_tag('savealife.png', class:"img-fluid"  ) %>
+          <h4 class="text-secondary text-center">Save a Live</h4>
+          <p class="text-secondary">
+            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in
+            some formhumour, or randomised words which don't look even slightly believable. If you are going to use a
+            passage. industry's standard dummy has survived not only five centuries, but also the leap into electronic
+            typesetting, remaining essentially unchanged.
+
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
