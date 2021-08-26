@@ -5,14 +5,12 @@ class PagesController < ApplicationController
   end
 
   def my_donations
-    @donations = current_user.bloods
+    @bloods = current_user.bloods.where(avaliable: true)
+    if current_user.cnpj.nil?
+      @donations = Donation.includes(blood: [:user]).where(bloods: { user: current_user })
+    else
+      @donations = current_user.donations
+    end
   end
 
-  def all_donations
-    @bloods = Blood.all
-  end
-
-  def user_donations
-    @user = User.all
-  end
 end

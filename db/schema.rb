@@ -44,8 +44,8 @@ ActiveRecord::Schema.define(version: 2021_08_24_154217) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.text "name"
-    t.string "CPF"
-    t.string "CNPJ"
+    t.string "cpf"
+    t.string "cnpj"
     t.string "address", default: "", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

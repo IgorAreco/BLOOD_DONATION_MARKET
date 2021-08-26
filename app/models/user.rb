@@ -5,4 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :donations
   has_many :bloods
+  validates :cpf, presence: { if: -> { cnpj.blank? } }
+  validates :cnpj, presence: { if: -> { cpf.blank? } }
+  validates :address, :name, presence: true
 end
