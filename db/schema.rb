@@ -10,20 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_25_165405) do
+ActiveRecord::Schema.define(version: 2021_08_24_154217) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bloods", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.text "location"
-    t.integer "quantity"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.string "address"
+    t.string "blood_type", default: "", null: false
+    t.boolean "offer", default: true, null: false
     t.float "latitude"
     t.float "longitude"
-    t.string "address"
+    t.boolean "available", default: true, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_bloods_on_user_id"
   end
 
@@ -44,11 +45,8 @@ ActiveRecord::Schema.define(version: 2021_08_25_165405) do
     t.datetime "remember_created_at"
     t.text "name"
     t.string "CPF"
-    t.string "blood_type"
-    t.integer "age"
-    t.boolean "hepatitis"
-    t.boolean "HIV"
     t.string "CNPJ"
+    t.string "address", default: "", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
