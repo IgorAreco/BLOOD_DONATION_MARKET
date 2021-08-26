@@ -1,34 +1,26 @@
 class DonationsController < ApplicationController
-  def new
-    @user = User.find(params[:user_id])
-    @donation = Donation.new
-  end
-
-  def index
-    @donations = Donation.all
-  end
-
   def show
     @donation = Donation.find(params[:id])
   end
 
   def create
-    @user = User.find(params[:user_id])
-
     @donation = Donation.new(donation_params)
-
-    @donation.user = @user
+    if current_user.cnpj.nil?
+      @donation.user = @donation.blood.user
+      @donation.blood.update(user: current_user, offer: true, available: false)
+    else
+      @donation.user = current_user
+      @donation.blood.update(available: false)
+    end
 
     if @donation.save
-      redirect_to user_path(@user)
+      redirect_to my_donations_path
     else
       render :new
     end
   end
 
   def donation_params
-    # repare que o :restaurant_id nao esta presente aqui. Nao queremos que
-    # o user nos passe essa informacao (pois pegaremos ela da url)
-    params.require(:donation).permit(:user_id, :blood_id)
+    params.require(:donation).permit(:blood_id)
   end
 end
