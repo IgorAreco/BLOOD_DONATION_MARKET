@@ -1,3 +1,4 @@
+
 Donation.delete_all
 Blood.destroy_all
 User.destroy_all
@@ -41,3 +42,5 @@ puts "#{User.count} Users created"
 puts "#{Blood.count} Bloods created"
 
 puts "seeds done"
+
+
