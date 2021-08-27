@@ -25,7 +25,7 @@ class BloodsController < ApplicationController
     @blood.offer = current_user.cnpj.nil?
 
     if @blood.save
-      redirect_to bloods_path
+      redirect_to my_donations_path
     else
       render :new
     end
