@@ -9,7 +9,8 @@ class BloodsController < ApplicationController
     @markers = @bloods.geocoded.map do |blood|
       {
         lat: blood.latitude,
-        lng: blood.longitude
+        lng: blood.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { blood: blood })
       }
     end
   end
