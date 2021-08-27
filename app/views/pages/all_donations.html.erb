@@ -1,11 +1,10 @@
-<div class='container'>
+<div class='container pt-5 mt-3'>
   <div class='d-flex justify-content-between my-4'>
     <h1><%= current_user.cnpj.nil? ? 'Blood Requests' : 'Donations Available' %></h1>
-    <%= link_to 'Back', root_path, class:'btn-danger btn' %>
   </div>
   <div>
-    <table class="table">
-      <thead class="bg-danger text-white">
+    <table class="table table-hover">
+      <thead class="text-dark">
         <tr>
           <th scope="col"><%= current_user.cnpj.nil? ? 'Hospital' : 'User' %></th>
           <th scope="col">Blood Type</th>
@@ -20,12 +19,14 @@
                 <td scope="col"><%= blood.user.name %></td>
                 <td scope="col"><%= blood.blood_type  %></td>
                 <td scope="col"><%= blood.address  %></td>
+                <td scope="col"><%= link_to 'Accept', blood_donations_path(blood), method: :post %></td>
               </tr>
             <% else %>
               <tr>
                 <td scope="col"><%= blood.user.name %></td>
                 <td scope="col"><%= blood.blood_type  %></td>
                 <td scope="col"><%= blood.address  %></td>
+                <td scope="col"><%= link_to 'Donate', blood_donations_path(blood), method: :post %></td>
               </tr>
             <% end %>
           <% end %>
