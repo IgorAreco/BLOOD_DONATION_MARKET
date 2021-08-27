@@ -1,13 +1,18 @@
-<div class='container'>
-  <div class='d-flex justify-content-between my-4 class=''>
-    <h1>My Donations</h1>
-    <%= link_to 'Back', root_path, class:'btn-danger btn' %>
-  </div>
+<div class='container pt-5 mt-3'>
+  <% if current_user.cnpj != nil %>
+    <div class='d-flex justify-content-between my-4 class='>
+      <h1>My Recieved Donations</h1>
+    </div>
+  <% else %>
+    <div class='d-flex justify-content-between my-4 class='>
+      <h1>My Donations</h1>
+    </div>
+  <% end %>
   <div>
-    <table class="table">
+    <table class="table table-hover">
         <tbody>
           <% if current_user.cnpj != nil %>
-            <thead class="bg-danger text-white">
+            <thead class="text-dark">
               <tr>
                 <th scope="col">Name</th>
                 <th scope="col">Blood Type</th>
@@ -15,10 +20,10 @@
               </tr>
             </thead>
           <% else %>
-            <thead class="bg-danger text-white">
+            <thead class="text-dark">
               <tr>
                 <th scope="col">Blood Type</th>
-                <th scope="col">Address</th>
+                <th scope="col">Hospital</th>
                 <th scope="col">Available</th>
               </tr>
             </thead>
@@ -35,7 +40,7 @@
             <% @bloods.each do |blood|  %>
               <tr>
                 <td scope="col"><%= blood.blood_type %></td>
-                <td scope="col"><%= blood.address %></td>
+                <td scope="col"><%= blood.donations.empty? ? 'Unclaimed' : blood.donations.first.user.name %></td>
                 <td scope="col"><%= blood.available ? 'Yes' : 'No' %></td>
               </tr>
             <% end %>

@@ -4,7 +4,7 @@ class DonationsController < ApplicationController
   end
 
   def create
-    @donation = Donation.new(donation_params)
+    @donation = Donation.new(blood: Blood.find(params[:blood_id]))
     if current_user.cnpj.nil?
       @donation.user = @donation.blood.user
       @donation.blood.update(user: current_user, offer: true, available: false)
@@ -18,9 +18,5 @@ class DonationsController < ApplicationController
     else
       render :new
     end
-  end
-
-  def donation_params
-    params.require(:donation).permit(:blood_id)
   end
 end

@@ -16,48 +16,36 @@
   <body>
 
   <header>
-    <nav class="navbar navbar-expand-sm navbar-light bg-white">
-      <div class="container">
-        <a href="#" class="navbar-brand">
-        <%= image_tag('logo.png') %>
-        </a>
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#nav-principal">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="#nav-principal">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a href="#" class="nav-link">Home</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">About Us</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">Need Help</a>
-            </li>
-            <li class="nav-item">
-              <%# link_to 'All Donations', all_donations_path, class:"nav-link" %>
-            </li>
-            <% if current_user %>
-            <li class="nav-item">
-              <%= link_to 'Donate', new_blood_path, class:"nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to 'My Donations', my_donations_path, class:"nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to 'Log out', destroy_user_session_path, class:"nav-link", method: :delete %>
-            </li>
-            <% else  %>
-            <li class="nav-item">
-              <%= link_to 'Login', new_user_session_path, class:"nav-link" %>
-            </li>
-            <% end %>
-          </ul>
+    <div class="container bg-transparent pb-3 pt-3 fixed-top">
+    <% nav_class = request.env['PATH_INFO'] == '/' ? 'btn-outline-light' : 'btn-outline-dark' %>
+      <% if current_user %>
+        <div class="text-end mx-2 mt-2">
+        <%= link_to current_user.name, '#', class:"btn #{nav_class} me-2 mr-3" %>
+        <%= link_to 'Blood Donation Center', root_path, class:"btn #{nav_class} me-2" %>
+        <%= link_to 'Donate Now', new_blood_path, class:"btn #{nav_class} me-2" %>
+        <%# <button type="button" class="btn btn-danger">Donate</button> %>
+        <%= link_to 'My Donations', my_donations_path, class:"btn #{nav_class} me-2" %>
+        <%= link_to 'Offers and Requests', all_donations_path, class:"btn #{nav_class} me-2" %>
+        <%# <button type="button" class="btn btn-danger">My Donations</button> %>
+        <%= link_to 'Log out', destroy_user_session_path, class:"btn btn-outline-danger my-2 my-sm-0", method: :delete %>
+        <%# <button type="button" class="btn #{nav_class} me-2">Sign-out</button> %>
+        <% else  %>
+        <%= link_to 'Offers and Requests', all_donations_path, class:"btn #{nav_class} me-2" %>
+        <%= link_to 'Blood Donation Center', root_path, class:"btn #{nav_class} me-2" %>
+        <%= link_to 'Donate Now', new_blood_path, class:"btn #{nav_class} me-2" %>
+        <%# <button type="button" class="btn btn-danger">Donate</button> %>
+        <%= link_to 'My Donations', my_donations_path, class:"btn #{nav_class} me-2" %>
+        <%= link_to 'Login', new_user_session_path, class:"btn btn-success my-2" %>
+        <%# <button type="button" class="btn btn-danger">Login</button> %>
+        <% end %>
         </div>
       </div>
-    </nav>
+    </div>
   </header>
+  <div>
     <%= yield %>
+  </div>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
   </body>
 </html>
