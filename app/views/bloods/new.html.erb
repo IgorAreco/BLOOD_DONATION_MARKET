@@ -1,8 +1,8 @@
-  <div class="container pt-5 mt-3">
-  <h1>Blood Donation</h1>
-  <%= simple_form_for @blood do |f| %>
-    <%= f.input :blood_type, collection: Blood::BLOOD_TYPE %>
-    <%= f.input :address, placeholder: 'Leave it blank to user your own address', required: false%>
-    <%= f.submit 'BLOOD!'%>
-  <% end %>
+  <div class="container pt-5 mt-5">
+    <h1>Blood Donation</h1>
+    <%= simple_form_for @blood do |f| %>
+      <%= f.input :blood_type, collection: Blood::BLOOD_TYPE %>
+      <%= f.input :address, placeholder: 'Leave it blank to user your own address', required: false%>
+      <%= f.submit 'BLOOD!'%>
+    <% end %>
   </div>
